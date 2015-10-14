@@ -22,9 +22,13 @@ mongoose.connect('mongodb://localhost:27017/northwind'); // connect to our datab
 var Category = require('./models/categoriesModel');
 
 
+
 // ROUTES FOR OUR API
 // =============================================================================
 var northwindRouter = express.Router();              // get an instance of the express Router
+
+// for later when we decide to push it out to a separate file versus below..... 
+//northwindRouter = require('./routes/categoryRoutes.js')(Category);
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 northwindRouter.get('/', function(req, res) {
