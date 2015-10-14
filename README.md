@@ -10,6 +10,8 @@ https://github.com/Homebrew/homebrew/blob/master/Library/Formula/mongodb.rb - if
 
 https://www.youtube.com/watch?v=qI_g07C_Q5I - Intro to NoSql databases with Martin Fowler (50 min)
 
+Postgres Northwind sql script - https://code.google.com/p/northwindextended/downloads/detail?name=northwind.postgre.sql
+
 Original development by @dodegaard
 
 Instructor notes: 
