@@ -130,7 +130,22 @@ northwindRouter.route('/categories/:categoryId')
 				res.status(500).send(err);
 			else
 				res.json(cat);
-		})
+		});
+	})
+	.put(function(req,res)
+	{
+		Category.findById(req.params.categoryId,function(err,cat)
+		{
+			if(err)
+				res.status(500).send(err);
+			else
+				cat.CategoryId = req.body.CategoryId;
+				cat.CategoryName = req.body.CategoryName;
+				cat.Description = req.body.Description;
+				cat.Picture = req.body.Picture;
+				cat.save();
+				res.json(cat);
+		});
 	});
 
 // REGISTER OUR ROUTES -------------------------------
