@@ -72,7 +72,9 @@ northwindRouter.route('/categories')
 
 		//--------------------------------
 
-		// Step Four -- add safety to query string
+		// Step Four -- add safety to query string to prevent bad queries like 
+		// http://localhost:3000/api/categories?sssfdsfs
+		// this will make sure that a valid query string works
 
 		var query = {};
 
@@ -90,7 +92,19 @@ northwindRouter.route('/categories')
 		})
 
 
-	})
+	});
+
+northwindRouter.route('/categories/:categoryId')
+	.get(function(req,res)
+	{
+		Category.findById(req.params.categoryId,function(err,cat)
+		{
+			if(err)
+				res.status(500).send(err);
+			else
+				res.json(cat);
+		})
+	});
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
