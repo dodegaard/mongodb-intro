@@ -6,7 +6,7 @@
 // call the packages we need
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
-var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');    // in order to parse for posting, etc
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -35,6 +35,29 @@ northwindRouter.get('/', function(req, res) {
 
 // route to data
 northwindRouter.route('/categories')
+	.post(function(req, res)
+	{
+		// Step Five -- just get used to how it is sent and use Postman
+
+		// var cat = new Category(req.body);
+
+		// console.log(cat);
+		// res.send(cat);
+
+		// install Postman in Google Chrome as extension
+
+		// ----------------------------------------
+
+		// Step Six -- save the actual data
+
+		var cat = new Category(req.body);
+
+		cat.save();
+		res.status(201).send(cat);
+
+	})
+
+
 	.get(function(req,res)
 	{
 		//Step One - test route
