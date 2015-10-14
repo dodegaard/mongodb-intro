@@ -37,17 +37,59 @@ northwindRouter.get('/', function(req, res) {
 northwindRouter.route('/categories')
 	.get(function(req,res)
 	{
+		//Step One - test route
+
 		//var responseJson = {hello: "this is my api"};
 
 		//res.json(responseJson);
 
-		Category.find(function(err,cats)
+		//------------------------------
+
+		//Step Two - wire up mongoose to find all records and send error if it happens
+		// eg http://localhost:3000/api/categories
+
+		// Category.find(function(err,cats)
+		// {
+		// 	if(err)
+		// 		res.status(500).send(err);
+		// 	else
+		// 		res.json(cats);
+		// })
+
+		//-------------------------------
+
+		//Step Three - introduce a query string to filter records like http://localhost:3000/api/categories?CategoryName=Produce
+
+		// var query = req.query;
+
+		// Category.find(query,function(err,cats)
+		// {
+		// 	if(err)
+		// 		res.status(500).send(err);
+		// 	else
+		// 		res.json(cats);
+		// })
+
+		//--------------------------------
+
+		// Step Four -- add safety to query string
+
+		var query = {};
+
+		if(req.query.CategoryName)
+		{
+			query.CategoryName = req.query.CategoryName;
+		}
+
+		Category.find(query,function(err,cats)
 		{
 			if(err)
-				console.log(err)
+				res.status(500).send(err);
 			else
 				res.json(cats);
 		})
+
+
 	})
 
 // REGISTER OUR ROUTES -------------------------------
