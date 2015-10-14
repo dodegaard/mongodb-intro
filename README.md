@@ -12,6 +12,8 @@ https://www.youtube.com/watch?v=qI_g07C_Q5I - Intro to NoSql databases with Mart
 
 Postgres Northwind sql script - https://code.google.com/p/northwindextended/downloads/detail?name=northwind.postgre.sql
 
+Robomongo - http://robomongo.org
+
 Original development by @dodegaard
 
 Instructor notes: 
